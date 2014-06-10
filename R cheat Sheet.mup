@@ -342,7 +342,8 @@
           "attr": {
             "style": {
               "background": "#E0E0E0"
-            }
+            },
+            "collapsed": true
           }
         }
       },
