@@ -1,0 +1,737 @@
+{
+  "title": "R cheat Sheet",
+  "id": 1,
+  "formatVersion": 2,
+  "ideas": {
+    "33": {
+      "title": "Basics",
+      "id": 21,
+      "ideas": {
+        "1": {
+          "title": "Set Library",
+          "id": 2,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "\n<div><span style=\"color: rgb(0, 0, 0); font-family: Tahoma; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium; display: inline !important; float: none;\">setwd(\"C:/Users/DDao/Desktop/Dancers\")</span></div>"
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "2": {
+          "title": "Reading Files",
+          "id": 3,
+          "ideas": {
+            "1": {
+              "title": "CSV",
+              "id": 4,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "\n<div><span style=\"color: rgb(0, 0, 0); font-family: Tahoma; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium; display: inline !important; float: none;\">hd &lt;- read.csv(\"CSTE_DB_SEP_E.csv\", header=TRUE, sep=\",\", as.is=TRUE)&nbsp;</span></div>"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "2": {
+              "title": "SAS Database",
+              "id": 6,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "\n<div><div style=\"color: rgb(0, 0, 0); font-family: Tahoma; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium;\">library(sas7bdat)&nbsp; &nbsp; &nbsp;&nbsp;</div><div style=\"color: rgb(0, 0, 0); font-family: Tahoma; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium;\">read.sas7bdat(\"C:/Users/DDao/Desktop/Dancers/drown_ed.sas7bdat\")</div></div>"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "3": {
+              "title": "Numbers with commas",
+              "id": 112,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "<div><br></div><div><table style=\"margin: 0px; padding: 0px; border: 0px; font-size: 13px; vertical-align: baseline; background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); font-family: Arial, 'Liberation Sans', 'DejaVu Sans', sans-serif; line-height: 12.800000190734863px;\"><tbody style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent;\"><tr style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent;\"><td class=\"answercell\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent;\"><div class=\"post-text\" style=\"margin: 0px 5px 5px 0px; padding: 0px; border: 0px; font-size: 14px; vertical-align: baseline; background-color: transparent; word-wrap: break-word; width: 660px; line-height: 17.804800033569336px; background-position: initial initial; background-repeat: initial initial;\"><p style=\"margin-bottom: 1em; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; clear: both;\">Not sure about how to have&nbsp;<code style=\"margin: 0px; padding: 1px 5px; border: 0px; font-size: 14px; vertical-align: baseline; background-color: rgb(238, 238, 238); font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif; white-space: pre-wrap;\">read.csv</code>&nbsp;interpret it properly, but you can reformat the character vector with&nbsp;<code style=\"margin: 0px; padding: 1px 5px; border: 0px; font-size: 14px; vertical-align: baseline; background-color: rgb(238, 238, 238); font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif; white-space: pre-wrap;\">gsub</code>:</p><pre class=\"default prettyprint prettyprinted\" style=\"margin-bottom: 10px; padding: 5px; border: 0px; font-size: 14px; vertical-align: baseline; background-color: rgb(238, 238, 238); font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif; overflow: auto; width: auto; max-height: 600px; word-wrap: normal;\"><code style=\"margin: 0px; font-size: 14px; vertical-align: baseline; background-color: rgb(238, 238, 238); font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif; white-space: inherit;\"><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">&gt;</span><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\"> y </span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">&lt;-</span><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\"> c</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">(</span><span class=\"str\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(128, 0, 0);\">\"1,200\"</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">,</span><span class=\"str\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(128, 0, 0);\">\"20,000\"</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">,</span><span class=\"str\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(128, 0, 0);\">\"100\"</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">,</span><span class=\"str\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(128, 0, 0);\">\"12,111\"</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">)</span><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">\n</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">&gt;</span><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\"> </span><span class=\"kwd\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 139);\">as</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">.</span><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">numeric</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">(</span><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">gsub</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">(</span><span class=\"str\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(128, 0, 0);\">\",\"</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">,</span><span class=\"str\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(128, 0, 0);\">\"\"</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">,</span><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\"> y</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">))</span><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">\n</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">[</span><span class=\"lit\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(128, 0, 0);\">1</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">]</span><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">  </span><span class=\"lit\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(128, 0, 0);\">1200</span><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\"> </span><span class=\"lit\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(128, 0, 0);\">20000</span><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\">   </span><span class=\"lit\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(128, 0, 0);\">100</span><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(0, 0, 0);\"> </span><span class=\"lit\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent; color: rgb(128, 0, 0);\">12111</span></code></pre></div></td></tr></tbody></table></div>"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            }
+          },
+          "attr": {
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "3": {
+          "title": "Formatting",
+          "id": 31,
+          "ideas": {
+            "1": {
+              "title": "Concatenate",
+              "id": 33,
+              "ideas": {
+                "1": {
+                  "title": "Paste (A,B, Sep=\"-\")",
+                  "id": 34
+                }
+              }
+            },
+            "2": {
+              "title": "Round",
+              "id": 36,
+              "ideas": {
+                "3": {
+                  "title": "sprintf(\"%2.1f\", A)",
+                  "id": 46,
+                  "ideas": {}
+                },
+                "4": {
+                  "title": "Real Rounding",
+                  "id": 49,
+                  "ideas": {
+                    "1": {
+                      "title": "Round(A, digits=2)",
+                      "id": 37
+                    },
+                    "2": {
+                      "title": "Signif(A, digits=2)",
+                      "id": 38
+                    }
+                  },
+                  "attr": {
+                    "style": {
+                      "background": "#E0E0E0"
+                    }
+                  }
+                }
+              },
+              "attr": {
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "3": {
+              "title": "Percent ",
+              "id": 40,
+              "ideas": {
+                "1": {
+                  "title": "Library (scales), percent()",
+                  "id": 43,
+                  "attr": {
+                    "attachment": {
+                      "contentType": "text/html",
+                      "content": "divide percent by number if you want to fine tune"
+                    },
+                    "style": {
+                      "background": "#E0E0E0"
+                    }
+                  }
+                },
+                "2": {
+                  "title": "sprintf(\"%2.1f%%\", A)k",
+                  "id": 47
+                },
+                "3": {
+                  "title": "Back to Number from %",
+                  "id": 50,
+                  "ideas": {
+                    "1": {
+                      "title": "as.numeric(sub(\"%\", \"\", A))",
+                      "id": 51
+                    }
+                  }
+                }
+              },
+              "attr": {
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            }
+          },
+          "attr": {
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "5": {
+          "title": "Subsetting",
+          "id": 67,
+          "ideas": {
+            "1": {
+              "title": "ifelse",
+              "id": 68,
+              "ideas": {},
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "de$ex &lt;- factor(ifelse(substr(de$e1,1,4) ==\"E924\", substr(de$e1,1,5), substr(de$e1,1,4)))<div><br></div><div>example 2</div><div><br></div><div><div>parfait$yo_n2_ &lt;- parfait$yo_n_ - 11</div><div><br></div><div>parfait$yo_n2_ [parfait$yo_n2_&lt;= 0 ] &lt;- 0</div></div>"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            }
+          },
+          "attr": {
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "6": {
+          "title": "Recoding Variables /Ordering",
+          "id": 93,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "x &lt;- as.vector(dh$cause)<br>dh$c3 &lt;- ifelse(x %in% a.s, \"Other\", x)<br><br>dh$c2[dh$c2 %in% a.s] &lt;- \"Other\"<br><br>dh$c3 &lt;- ifelse(x %in% a.s, \"Other\", x)"
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          },
+          "ideas": {
+            "1": {
+              "title": "Change just one",
+              "id": 95,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "a$occupant_[a$occupant_==\"\"] &lt;- NA"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "2": {
+              "title": "New Column Names",
+              "id": 96,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "<code>names(newprice)[1]&lt;-\"premium\"</code>"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "3": {
+              "title": "Substring",
+              "id": 66,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "<pre>substr(x, start, stop)\nsubstring(text, first, last = 1000000L)\nsubstr(x, start, stop) &lt;- value\nsubstring(text, first, last = 1000000L) &lt;- value</pre>"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "4": {
+              "title": "Ordering Factors",
+              "id": 110,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "<pre class=\"knitr r\"><span class=\"hl std\">ses.order</span> <span class=\"hl kwb\">&lt;-</span> <span class=\"hl kwd\">ordered</span><span class=\"hl std\">(ses,</span> <span class=\"hl kwc\">levels</span> <span class=\"hl std\">=</span> <span class=\"hl kwd\">c</span><span class=\"hl std\">(</span><span class=\"hl str\">\"low\"</span><span class=\"hl std\">,</span> <span class=\"hl str\">\"middle\"</span><span class=\"hl std\">,</span> <span class=\"hl str\">\"high\"</span><span class=\"hl std\">))</span>\n<span class=\"hl std\">ses</span></pre>"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            }
+          }
+        },
+        "8": {
+          "title": "Exporting Data",
+          "id": 9,
+          "ideas": {
+            "1": {
+              "title": "Excel (CSV)",
+              "id": 11,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "write.table(AAX, file = \"foo.csv\", sep = \",\", col.names = NA, qmethod = \"double\")"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              },
+              "ideas": {
+                "1": {
+                  "title": "Quick Table",
+                  "id": 20,
+                  "attr": {
+                    "attachment": {
+                      "contentType": "text/html",
+                      "content": "<code>write.table(x, \"clipboard\", sep=\"\\t\")</code>"
+                    },
+                    "style": {
+                      "background": "#E0E0E0"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "attr": {
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "1.5": {
+          "title": "Showing Data",
+          "id": 15,
+          "ideas": {
+            "1": {
+              "title": "First 6 rows",
+              "id": 17,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "Head()<br><br>you can add n=x if you want less."
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "2": {
+              "title": "Getting Proportions Similar to FREQ",
+              "id": 52,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "mark &lt;- data.frame(prop.table(table(A,B),1))<br><br>change it to 2 or 1 based on type of %, column or row"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "3": {
+              "title": "Sorting",
+              "id": 97,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "<pre style=\"\" class=\"default prettyprint prettyprinted\"><code><span class=\"pln\">R</span><span class=\"pun\">&gt;</span><span class=\"pln\"> dd</span><span class=\"pun\">[</span><span class=\"pln\"> order</span><span class=\"pun\">(-</span><span class=\"pln\">dd</span><span class=\"pun\">[,</span><span class=\"lit\">4</span><span class=\"pun\">],</span><span class=\"pln\"> dd</span><span class=\"pun\">[,</span><span class=\"lit\">1</span><span class=\"pun\">]),</span><span class=\"pln\"> </span><span class=\"pun\">]</span><span class=\"pln\"></span></code></pre>"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            }
+          },
+          "attr": {
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        }
+      },
+      "attr": {
+        "style": {
+          "background": "#E0E0E0"
+        },
+        "position": [
+          16,
+          131,
+          4
+        ]
+      }
+    },
+    "-10": {
+      "title": "Graphics",
+      "id": 7,
+      "ideas": {
+        "5": {
+          "title": "Lines and Color Parameters",
+          "id": 25,
+          "ideas": {
+            "1": {
+              "title": "Using a hexadecimal color",
+              "id": 22,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "as below<br><br>barplot(1, axes=FALSE, col=\"#4782B4\")"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "2": {
+              "title": "Different Line Types",
+              "id": 59,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "geom_line(aes(lineytpe=A))"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "3": {
+              "title": "line with different colors and legend!",
+              "id": 90,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "<br>&nbsp; theme(legend.position=\"bottom\") +<br>&nbsp; scale_y_continuous(labels = percent) +<br>&nbsp; ggtitle(\"Fire/Burn Emergency Department Visits (EDV) Kansas 2007-2010\") +<br>&nbsp; ylab(\"Injury Outcome %\\n\") +<br>&nbsp; xlab(\"\\nAge Group\") +<br>&nbsp; guides(linetype=guide_legend(title=\"Burn Type\",nrow=2, byrow=TRUE)) +<br>&nbsp; guides(colour=guide_legend(title=\"Burn Type\",nrow=2, byrow=TRUE))"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            }
+          },
+          "attr": {
+            "style": {
+              "background": "#E0E0E0"
+            },
+            "collapsed": true
+          }
+        },
+        "6": {
+          "title": "Pie Chart",
+          "id": 27,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "<pre class=\"examples\">ggplot(df, aes(x = \"\", y = value, fill = variable)) +\n  geom_bar(width = 1, stat = \"identity\") +\n  scale_fill_manual(values = c(\"red\", \"yellow\")) +\n  coord_polar(\"y\", start = pi / 3) +\n  labs(title = \"Pac man\")</pre>"
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          },
+          "ideas": {}
+        },
+        "13": {
+          "title": "geom_bar",
+          "id": 91,
+          "attr": {
+            "style": {
+              "background": "#E0E0E0"
+            },
+            "collapsed": true
+          },
+          "ideas": {
+            "1": {
+              "title": "get rid of negative values (fill)",
+              "id": 92,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "combo.all &lt;- rbind(combo[,c(\"ageg\",\"type\",\"rate2\",\"LL95\",\"UL95\",\"count\")], <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; cbind(expand.grid(ageg=levels(combo$ageg), type=levels(combo$type)), <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; rate2=NA, LL95=NA, UL95=NA, count=NA))"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            }
+          }
+        },
+        "14": {
+          "title": "Error Bars",
+          "id": 94,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "<br>&nbsp; geom_errorbar(aes(ymin=LL95, ymax=UL95),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; width=.2,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; # Width of the error bars<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; position=position_dodge(.9))"
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "15": {
+          "title": "Axis/Labels/Legends",
+          "id": 105,
+          "ideas": {
+            "2": {
+              "title": "Legends",
+              "id": 55,
+              "ideas": {
+                "1": {
+                  "title": "Legend Position",
+                  "id": 56,
+                  "attr": {
+                    "attachment": {
+                      "contentType": "text/html",
+                      "content": "#top left<br>(legend.justification=c(0,1), legend.position=c(0,1)) <br>#top right<br>(legend.justification=c(1,1), legend.position=c(1,1)) <br><br>#bottom right<br>(legend.justification=c(1,0), legend.position=c(1,0)) <br>#bottom left<br>(legend.justification=c(0,0), legend.position=c(0,0))"
+                    },
+                    "style": {
+                      "background": "#E0E0E0"
+                    }
+                  }
+                },
+                "2": {
+                  "title": "Multiple Rows",
+                  "id": 60
+                }
+              },
+              "attr": {
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "3": {
+              "title": "Direct Labels",
+              "id": 29,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "direct.label(p, list(\"last.points\", hjust=-.25,vjust=0))"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "5": {
+              "title": "Axis",
+              "id": 109,
+              "ideas": {
+                "1": {
+                  "title": "Numeric Conversions on Axis",
+                  "id": 62,
+                  "ideas": {
+                    "1": {
+                      "title": "Percent on Axis",
+                      "id": 58,
+                      "attr": {
+                        "attachment": {
+                          "contentType": "text/html",
+                          "content": "<code>scale_y_continuous(labels=percent)<br><br><br></code>"
+                        },
+                        "style": {
+                          "background": "#E0E0E0"
+                        }
+                      },
+                      "ideas": {}
+                    },
+                    "2": {
+                      "title": "percent stack fill",
+                      "id": 64,
+                      "attr": {
+                        "attachment": {
+                          "contentType": "text/html",
+                          "content": "ggplot(kidz, aes(x=age, fill=intent2)) +<br>geom_bar(aes(fill=intent2), binwidth=5, position='fill' ,origin=0)"
+                        },
+                        "style": {
+                          "background": "#E0E0E0"
+                        }
+                      }
+                    }
+                  },
+                  "attr": {
+                    "style": {
+                      "background": "#E0E0E0"
+                    }
+                  }
+                },
+                "2": {
+                  "title": "Rotate",
+                  "id": 106,
+                  "attr": {
+                    "attachment": {
+                      "contentType": "text/html",
+                      "content": "ggplot(data=hd, aes(x=ageg, fill=X, y=ratef)) + geom_bar(stat=\"identity\", position=\"dodge\") +<br>&nbsp; facet_wrap(~X, ncol=1, scale=\"free_y\") +<br>&nbsp; Print_min +<br>&nbsp; t.na +<br><b>&nbsp; theme(axis.text.x=element_text(angle=90, hjust=1, vjust=.2))</b>"
+                    },
+                    "style": {
+                      "background": "#E0E0E0"
+                    }
+                  }
+                },
+                "3": {
+                  "title": "Expandad Zero Axis",
+                  "id": 114,
+                  "ideas": {},
+                  "attr": {
+                    "attachment": {
+                      "contentType": "text/html",
+                      "content": "expand_limits(x=0, y=0)"
+                    },
+                    "style": {
+                      "background": "#E0E0E0"
+                    }
+                  }
+                },
+                "4": {
+                  "title": "Comma",
+                  "id": 116,
+                  "attr": {
+                    "attachment": {
+                      "contentType": "text/html",
+                      "content": "<pre class=\"default prettyprint prettyprinted\" style=\"margin-bottom: 10px; padding: 5px; border: 0px; font-size: 14px; vertical-align: baseline; background-color: rgb(238, 238, 238); font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif; overflow: auto; width: auto; max-height: 600px; word-wrap: normal; color: rgb(0, 0, 0); line-height: 17.804800033569336px;\"><code style=\"margin: 0px; font-size: 14px; vertical-align: baseline; background-color: rgb(238, 238, 238); font-family: Consolas, Menlo, Monaco, 'Lucida Console', 'Liberation Mono', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Courier New', monospace, serif; white-space: inherit;\"><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent;\">scale_x_continuous</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent;\">(</span><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent;\">labels </span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent;\">=</span><span class=\"pln\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent;\"> comma</span><span class=\"pun\" style=\"margin: 0px; padding: 0px; border: 0px; vertical-align: baseline; background-color: transparent;\">)</span></code></pre>"
+                    },
+                    "style": {
+                      "background": "#E0E0E0"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "attr": {
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "16": {
+          "title": "Output",
+          "id": 107,
+          "ideas": {
+            "1": {
+              "title": "Specific Output Size",
+              "id": 8,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "\n<div><span style=\"color: rgb(0, 0, 0); font-family: Tahoma; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-auto; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium; display: inline !important; float: none;\">win.graph( width=9.6, height=7.2)</span></div>"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            }
+          },
+          "attr": {
+            "collapsed": true,
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "17": {
+          "title": "Color",
+          "id": 108,
+          "ideas": {
+            "1": {
+              "title": "Colour Brewer",
+              "id": 28,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "<pre>scale_colour_brewer(..., type = \"seq\", palette = 1)\n\nscale_fill_brewer(..., type = \"seq\", palette = 1)\n\nscale_color_brewer(..., type = \"seq\", palette = 1)</pre>"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "2": {
+              "title": "Manual Scale and Fill colors",
+              "id": 53,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "<pre style=\"\" class=\"default prettyprint prettyprinted\"><code><span class=\"pln\">d </span><span class=\"pun\">+</span><span class=\"pln\"> scale_color_manual</span><span class=\"pun\">(</span><span class=\"pln\">values</span><span class=\"pun\">=</span><span class=\"pln\">c</span><span class=\"pun\">(</span><span class=\"str\">\"#CC6666\"</span><span class=\"pun\">,</span><span class=\"pln\"> </span><span class=\"str\">\"#9999CC\"</span><span class=\"pun\">))<br><br></span></code><code><span class=\"pln\">d </span><span class=\"pun\">+</span><span class=\"pln\"> scale_fill_manual</span><span class=\"pun\">(</span><span class=\"pln\">values</span><span class=\"pun\">=</span><span class=\"pln\">c</span><span class=\"pun\">(</span><span class=\"str\">\"#CC6666\"</span><span class=\"pun\">,</span><span class=\"pln\"> </span><span class=\"str\">\"#9999CC\"</span><span class=\"pun\">))</span></code><br></pre>"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            }
+          },
+          "attr": {
+            "collapsed": true,
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "18": {
+          "title": "Text",
+          "id": 117,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "05.08.2014<div><br></div><div>There is some weird stuff going on with the postscript. You have to declare which fonts you want to use. The fonts in R are postscript and windows fonts ar TTF. So you use Extrafont to bring the TTF fonts in, and then you declare with statements. The trick is that you have to declare each time unless you set a new defualt, which I did.&nbsp;</div><div><br></div><div><div>&nbsp; ps.options(fonts=c(\"Futura-Book\",\"Helvetica\",\"Palatino\",\"mono\", \"Helvetica\" ))</div><div>&nbsp;&nbsp;</div><div>&nbsp; walibrary(extrafont)</div><div>&nbsp; choose_font(\"Futura-Book\")</div><div>&nbsp; windowsFonts()</div><div>&nbsp; loadfonts()</div><div>&nbsp; font_import(pattern=\"\")</div><div>&nbsp; font_import(pattern=\"[F/f]utura\")</div><div>&nbsp; fonts()</div><div>&nbsp; loadfonts(device=\"win\")</div><div>&nbsp;&nbsp;</div></div>"
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        }
+      },
+      "attr": {
+        "style": {
+          "background": "#E0E0E0"
+        },
+        "position": [
+          194,
+          -80.5,
+          2
+        ]
+      }
+    },
+    "16.5": {
+      "title": "Analysis Tricks",
+      "id": 104,
+      "ideas": {
+        "1": {
+          "title": "Year to Year Differences",
+          "id": 98,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "<h2>Update: <code>data.table</code></h2>\n\n<p>If your data are very large, check out <code>data.table</code>. Even \nwith this example, you'll find a good speedup in relative terms. Plus \nthe syntax is super compact and, in my opinion, easily readable.</p>\n\n<pre style=\"\" class=\"default prettyprint prettyprinted\"><code><span class=\"pln\">library</span><span class=\"pun\">(</span><span class=\"pln\">plyr</span><span class=\"pun\">)</span><span class=\"pln\">\ndf1 </span><span class=\"pun\">&lt;-</span><span class=\"pln\"> aggregate</span><span class=\"pun\">(</span><span class=\"pln\">ab</span><span class=\"pun\">~</span><span class=\"pln\">year</span><span class=\"pun\">+</span><span class=\"pln\">lg</span><span class=\"pun\">+</span><span class=\"pln\">team</span><span class=\"pun\">,</span><span class=\"pln\"> FUN</span><span class=\"pun\">=</span><span class=\"pln\">sum</span><span class=\"pun\">,</span><span class=\"pln\"> data</span><span class=\"pun\">=</span><span class=\"pln\">baseball</span><span class=\"pun\">)</span><span class=\"pln\">\nlibrary</span><span class=\"pun\">(</span><span class=\"pln\">data</span><span class=\"pun\">.</span><span class=\"pln\">table</span><span class=\"pun\">)</span><span class=\"pln\">\nDT </span><span class=\"pun\">&lt;-</span><span class=\"pln\"> data</span><span class=\"pun\">.</span><span class=\"pln\">table</span><span class=\"pun\">(</span><span class=\"pln\">df1</span><span class=\"pun\">)</span><span class=\"pln\">\nDT\n</span><span class=\"com\">#       year lg team   ab</span><span class=\"pln\">\n</span><span class=\"com\">#    1: 1884 UA  ALT  108</span><span class=\"pln\">\n</span><span class=\"com\">#    2: 1997 AL  ANA 1703</span><span class=\"pln\">\n</span><span class=\"com\">#    3: 1998 AL  ANA 1502</span><span class=\"pln\">\n</span><span class=\"com\">#    4: 1999 AL  ANA  660</span><span class=\"pln\">\n</span><span class=\"com\">#    5: 2000 AL  ANA   85</span><span class=\"pln\">\n</span><span class=\"com\">#   ---                  </span><span class=\"pln\">\n</span><span class=\"com\"># 2523: 1895 NL  WSN  839</span><span class=\"pln\">\n</span><span class=\"com\"># 2524: 1896 NL  WSN  982</span><span class=\"pln\">\n</span><span class=\"com\"># 2525: 1897 NL  WSN 1426</span><span class=\"pln\">\n</span><span class=\"com\"># 2526: 1898 NL  WSN 1736</span><span class=\"pln\">\n</span><span class=\"com\"># 2527: 1899 NL  WSN  787</span></code></pre>\n\n<p>Now, look at this concise solution:</p>\n\n<pre style=\"\" class=\"default prettyprint prettyprinted\"><code><span class=\"pln\">DT</span><span class=\"pun\">[,</span><span class=\"pln\"> yoy </span><span class=\"pun\">:=</span><span class=\"pln\"> c</span><span class=\"pun\">(</span><span class=\"pln\">NA</span><span class=\"pun\">,</span><span class=\"pln\"> diff</span><span class=\"pun\">(</span><span class=\"pln\">ab</span><span class=\"pun\">)),</span><span class=\"pln\"> </span><span class=\"kwd\">by</span><span class=\"pln\"> </span><span class=\"pun\">=</span><span class=\"pln\"> </span><span class=\"str\">\"team,lg\"</span><span class=\"pun\">]</span><span class=\"pln\">\nDT\n</span><span class=\"com\">#       year lg team   ab  yoy</span><span class=\"pln\">\n</span><span class=\"com\">#    1: 1884 UA  ALT  108   NA</span><span class=\"pln\">\n</span><span class=\"com\">#    2: 1997 AL  ANA 1703   NA</span><span class=\"pln\">\n</span><span class=\"com\">#    3: 1998 AL  ANA 1502 -201</span><span class=\"pln\">\n</span><span class=\"com\">#    4: 1999 AL  ANA  660 -842</span><span class=\"pln\">\n</span><span class=\"com\">#    5: 2000 AL  ANA   85 -575</span><span class=\"pln\">\n</span><span class=\"com\">#   ---                       </span><span class=\"pln\">\n</span><span class=\"com\"># 2523: 1895 NL  WSN  839  290</span><span class=\"pln\">\n</span><span class=\"com\"># 2524: 1896 NL  WSN  982  143</span><span class=\"pln\">\n</span><span class=\"com\"># 2525: 1897 NL  WSN 1426  444</span><span class=\"pln\">\n</span><span class=\"com\"># 2526: 1898 NL  WSN 1736  310</span><span class=\"pln\">\n</span><span class=\"com\"># 2527: 1899 NL  WSN  787 -949</span></code></pre>"
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "2": {
+          "title": "Lookup Table",
+          "id": 12,
+          "ideas": {},
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "dataset &lt;- join(dataset,lookup,by='key')<br><br>Rememember that they key in both datasets need to be in the same type or it won't work."
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        }
+      },
+      "attr": {
+        "style": {
+          "background": "#E0E0E0"
+        },
+        "collapsed": true
+      }
+    }
+  },
+  "links": [],
+  "attr": {
+    "style": {
+      "background": "#22AAE0"
+    }
+  }
+}
