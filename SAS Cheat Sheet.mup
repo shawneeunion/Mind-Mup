@@ -1,0 +1,240 @@
+{
+  "title": "SAS Cheat Sheet",
+  "id": 1,
+  "formatVersion": 2,
+  "ideas": {
+    "1": {
+      "title": "Lookup Table",
+      "id": 2,
+      "ideas": {
+        "1": {
+          "title": "ICD10: pop.LK10",
+          "id": 15,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "<br><br>data results;<br>&nbsp;&nbsp; &nbsp;length acme_uc $10.;<br>&nbsp;&nbsp; &nbsp;if 0 then set pop.lk10(keep=acme_uc top39) hannah;<br>&nbsp;&nbsp; &nbsp;if _n_ = 1 then do;<br>&nbsp;&nbsp; &nbsp;declare hash h (dataset:\"pop.lk10\");<br>&nbsp;&nbsp; &nbsp;h.definekey('acme_uc');<br>&nbsp;&nbsp; &nbsp;h.definedata('top39');<br>&nbsp;&nbsp; &nbsp;h.definedone();<br>&nbsp;&nbsp; &nbsp;end;<br>set&nbsp; hannah;<br>rc =&nbsp; h.find(key:acme_uc) ;<br>&nbsp;&nbsp; &nbsp;if rc = 0 then do;<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;top39_=top39;<br>&nbsp;&nbsp; &nbsp;end;<br>&nbsp;&nbsp; &nbsp;else do;<br>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;top39_=' ';<br>&nbsp;&nbsp; &nbsp;end;<br>run;"
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "2": {
+          "title": "ICD9: pop.LK9",
+          "id": 16,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "<br><div style=\"height: 670px;\" id=\"attachEditArea\" data-mm-role=\"editor\" contenteditable=\"false\"><i>basic\n code.You have to set the situation first (define key) and then set on \nthe file and call what you want. The extended rc=0 lets the non-finds \nstick around, there was some funny business going on that I couldn't \nidentify.<br></i><br><br>data results;<br>&nbsp;&nbsp;&nbsp; length icd9 $10.;<br>&nbsp;&nbsp;&nbsp; if 0 then set het(keep=icd9 ind_cause ind_cause_ ind_intent ind_intent_ cause ) xhdii2011;<br>&nbsp;&nbsp;&nbsp; if _n_ = 1 then do;<br>&nbsp;&nbsp;&nbsp; declare hash h (dataset:\"het\");<br>&nbsp;&nbsp;&nbsp; h.definekey('icd9');<br>&nbsp;&nbsp;&nbsp; h.definedata('ind_cause' ,'ind_cause_' ,'ind_intent' ,'ind_intent_', 'cause');<br>&nbsp;&nbsp;&nbsp; h.definedone();<br>&nbsp;&nbsp;&nbsp; end;<br>set&nbsp; xhdii2011;<br>rc =&nbsp; h.find(key:icd9) ;<br>&nbsp;&nbsp;&nbsp; if rc = 0 then do;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cause_=ind_cause_;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cause=ind_cause;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; intent=ind_intent;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; intent_=ind_intent_;<br>&nbsp;&nbsp;&nbsp; end;<br>&nbsp;&nbsp;&nbsp; else do;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cause_=' ';<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; cause=.;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; intent=.;<br>&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; intent_=' ';<br>&nbsp;&nbsp;&nbsp; end;<br>run;<br><i><br></i></div>"
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "3": {
+          "title": "Surveyfreq Selection",
+          "id": 22,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "<div><br></div><div>proc sort data=marvels; by ovx; run;</div><div>proc surveyselect data=marvels out=samp2010 method=srs n=10000 seed=2913741 sampsize=20000 sampsize=(10000 10000);</div><div>strata ovx;</div><div>run;</div>"
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        }
+      },
+      "attr": {
+        "style": {
+          "background": "#E0E0E0"
+        }
+      }
+    },
+    "12": {
+      "title": "Sample dataset Names",
+      "id": 12,
+      "ideas": {},
+      "attr": {
+        "attachment": {
+          "contentType": "text/html",
+          "content": "AGENTS <br>DENSITY<br>FITNESS<br>HDL<br>MONOX<br>PAVING"
+        },
+        "style": {
+          "background": "#E0E0E0"
+        }
+      }
+    },
+    "22": {
+      "title": "Importing Data",
+      "id": 7,
+      "ideas": {
+        "1": {
+          "title": "Excel",
+          "id": 8,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "\n<div><div style=\"color: rgb(0, 0, 0); font-family: Tahoma; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium;\" align=\"left\"><font color=\"#0000FF\" face=\"Courier New\">&nbsp; &nbsp; &nbsp;&nbsp;</font><font color=\"#0000FF\" face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\">Libname</span></font><span>&nbsp;</span><font face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\">test</span></font><span>&nbsp;</span><font color=\"#800080\" face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\">\"H:\\Health Promotion\\Injury Disability\\Dan\\R Library\\CSTE Advancements\\10 Lookup\\HCUP2014.xlsx\"</span></font><font face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\">;</span></font></div><div style=\"color: rgb(0, 0, 0); font-family: Tahoma; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium;\" align=\"left\"><font face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\"><br></span></font></div><div style=\"color: rgb(0, 0, 0); font-family: Tahoma; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium;\" align=\"left\"><font color=\"#000080\" face=\"Courier New\"><b>&nbsp; &nbsp; &nbsp;&nbsp;</b></font><font color=\"#000080\" face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\"><b>data</b></span></font><span>&nbsp;</span><font face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\">maron;</span></font></div><div style=\"color: rgb(0, 0, 0); font-family: Tahoma; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium;\" align=\"left\"><font color=\"#0000FF\" face=\"Courier New\">&nbsp; &nbsp; &nbsp;&nbsp;</font><font color=\"#0000FF\" face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\">set</span></font><span>&nbsp;</span><font face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\">test.\"HCUP2014$\"n;</span></font></div><div style=\"color: rgb(0, 0, 0); font-family: Tahoma; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-align: -webkit-left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium;\" align=\"left\"><font color=\"#000080\" face=\"Courier New\"><b>&nbsp; &nbsp; &nbsp;&nbsp;</b></font><font color=\"#000080\" face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\"><b>run</b></span></font><font face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\">;</span></font></div></div>"
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "2": {
+          "title": "CSV",
+          "id": 9,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "<pre style=\"margin-bottom: 0px; padding: 1.4em 0px 0px 12px; border: 0px; font-size: 12px; line-height: 1.25em; font-family: monospace; background-color: rgb(255, 255, 255);\">proc import datafile=\"C:\\temp\\test.csv\"\n     out=shoes\n     dbms=csv\n     replace;\n     getnames=no;\nrun;\n\nproc print;\nrun;</pre><div><br></div><p style=\"margin-top: 1.4em; margin-bottom: 0px; padding: 0px; border: 0px; font-size: 13px; line-height: 1.25em; font-family: arial, 'Arial Unicode MS', geneva, 'Lucida Grande', sans-serif; color: rgb(0, 0, 0);\"></p><p style=\"margin-top: 1.4em; margin-bottom: 0px; padding: 0px; border: 0px; font-size: 13px; line-height: 1.25em; font-family: arial, 'Arial Unicode MS', geneva, 'Lucida Grande', sans-serif; color: rgb(0, 0, 0);\"></p>"
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        }
+      }
+    },
+    "0.5": {
+      "title": "ODS OUTPUT",
+      "id": 4,
+      "ideas": {
+        "1": {
+          "title": "Stringed Output",
+          "id": 5,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "&nbsp;ods html newfile=none&nbsp; ;"
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "2": {
+          "title": "Single Output",
+          "id": 6,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "ods html newfile=proc;"
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        }
+      }
+    },
+    "-1": {
+      "title": "Data Manipulation",
+      "id": 20,
+      "ideas": {
+        "1": {
+          "title": "Character Data",
+          "id": 10,
+          "ideas": {
+            "2": {
+              "title": "Testing the Colon Operator",
+              "id": 18,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "data r;<br>input ecode $;<br>cards;<br>E906<br>E9061<br>E90<br>E905<br>E90577<br>E92<br>E85<br>E75689<br>E756<br>E70<br>;<br>run;<br>&nbsp;&nbsp; &nbsp;<br><br>data hey;<br>&nbsp;&nbsp; &nbsp;set r;<br>&nbsp;&nbsp; &nbsp;if ecode in: (\"E\") then x=1;<br>&nbsp;&nbsp; &nbsp;if ecode in (\"E\") then x_=1;<br>&nbsp;&nbsp; &nbsp;if ecode in: (\"E9\") then x9=1;<br>&nbsp;&nbsp; &nbsp;if ecode in: (\"E75\") then x75=1;<br>&nbsp;&nbsp; &nbsp;if \"E85\" &lt;=: ecode &lt;=: \"E905\" then x85_91=1;<br>run;"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "3": {
+              "title": "Compress Characters",
+              "id": 19,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "first one says what to replace with. second is what is replaced. tricky<br><br>input(compress(pzn_, 's','ap'),2.0)<br><br><br><br>specifies a character constant, variable,\nor expression in which each non-blank character modifies the action of the\nCOMPRESS function. Blanks are ignored. The following characters can be used\nas modifiers:\n\n<table class=\"largeSpace\" cellpadding=\"5\" cellspacing=\"0\"><tbody><tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893163\">\n</a>a or A</td>\n<td align=\"left\">\n<p><a name=\"a002893164\">\n</a>adds alphabetic characters to the\nlist of characters.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893165\">\n</a>c or C</td>\n<td align=\"left\">\n<p><a name=\"a002893166\">\n</a>adds control characters to the list\nof characters.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893167\">\n</a>d or D</td>\n<td align=\"left\">\n<p><a name=\"a002893168\">\n</a>adds digits to the list of characters.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893169\">\n</a>f or F</td>\n<td align=\"left\">\n<p><a name=\"a002893170\">\n</a>adds the underscore character and\nEnglish letters to the list of characters.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893171\">\n</a>g or G</td>\n<td align=\"left\">\n<p><a name=\"a002893172\">\n</a>adds graphic characters to the list\nof characters.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td>h or H</td>\n<td align=\"left\">\n<p>adds a horizontal tab to the list of characters.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893173\">\n</a>i or I</td>\n<td align=\"left\">\n<p><a name=\"a002893174\">\n</a>ignores the case of the characters\nto be kept or removed.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893175\">\n</a>k or K</td>\n<td align=\"left\">\n<p><a name=\"a002893176\">\n</a>keeps the characters in the list\ninstead of removing them.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893177\">\n</a>l or L</td>\n<td align=\"left\">\n<p><a name=\"a002893178\">\n</a>adds lowercase letters to the list\nof characters.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893179\">\n</a>n or N</td>\n<td align=\"left\">\n<p><a name=\"a002893180\">\n</a>adds digits, the underscore character,\nand English letters to the list of characters.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893181\">\n</a>o or O</td>\n<td align=\"left\">\n<p><a name=\"a002893182\">\n</a>processes the second and third arguments\nonce rather than every time the COMPRESS function is called. Using the O modifier\nin the DATA step (excluding WHERE clauses), or in the SQL procedure, can make\nCOMPRESS run much faster when you call it in a loop where the second and third\narguments do not change.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893183\">\n</a>p or P</td>\n<td align=\"left\">\n<p><a name=\"a002893184\">\n</a>adds punctuation marks to the list\nof characters.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893185\">\n</a>s or S</td>\n<td align=\"left\">\n<p><a name=\"a002893186\">\n</a>adds space characters (blank, horizontal\ntab, vertical tab, carriage return, line feed, and form feed) to the list\nof characters.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893187\">\n</a>t or T</td>\n<td align=\"left\">\n<p><a name=\"a002893188\">\n</a>trims trailing blanks from the first\nand second arguments.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893189\">\n</a>u or U</td>\n<td align=\"left\">\n<p><a name=\"a002893190\">\n</a>adds uppercase letters to the list\nof characters.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893191\">\n</a>w or W</td>\n<td align=\"left\">\n<p><a name=\"a002893192\">\n</a>adds printable characters to the\nlist of characters.</p></td></tr>\n\n<tr align=\"left\" valign=\"top\">\n<td><a name=\"a002893193\">\n</a>x or X</td>\n<td align=\"left\">\n<p><a name=\"a002893194\">\n</a>adds hexadecimal characters to the\nlist of characters.</p></td></tr></tbody></table>"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            },
+            "4": {
+              "title": "Ultimate ICD Macro Scan",
+              "id": 28,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "<div>v2</div><div><br></div><div><div>%macro evs (var, v1, v1in, v2, v2in, vout, voutx);</div><div>if (input(substr(&amp;var,1,&amp;v1),&amp;v1..0) in &amp;v1in) and&nbsp;</div><div>(input(substr(&amp;var,%eval(&amp;v1+1),&amp;v2),&amp;v2..0) in &amp;v2in)&nbsp;</div><div>and lengthn(&amp;var) =%eval(&amp;v1+&amp;v2) then &amp;vout=&amp;voutx;</div><div>%mend;</div></div><div><br></div><div><div><font face=\"Arial\">%evs (dx1, v1=3, v1in=(291), </font><span class=\"Apple-tab-span\" style=\"white-space:pre\"><span style=\"white-space: normal;\"><font face=\"Arial\">\t</font></span></span><font face=\"Arial\">v2=1, v2in=(0:5,9), vout=t1_, voutx=1.0);</font></div></div><div><br></div><div><br></div><div>v1</div><div>%macro evs (var, v1, v1in, v2, v2in, vout, voutx);</div><div>if (input(substr(&amp;var,1,&amp;v1),&amp;v1..0) in &amp;v1in) and&nbsp;</div><div>(input(substr(&amp;var,%eval(&amp;v1+1),&amp;v2),&amp;v2..0) in &amp;v2in) then &amp;vout=&amp;voutx;</div><div>%mend;</div>"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            }
+          },
+          "attr": {
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "2": {
+          "title": "Transposing",
+          "id": 21,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "proc transpose data=maron out=maron2;<br>&nbsp;&nbsp; &nbsp;by c: age sex_race hisp;<br>run;"
+            },
+            "style": {
+              "background": "#E0E0E0"
+            }
+          }
+        },
+        "3": {
+          "title": "Macros",
+          "id": 23,
+          "attr": {
+            "style": {
+              "background": "#E0E0E0"
+            }
+          },
+          "ideas": {
+            "1": {
+              "title": "Quickly Test Using Macro",
+              "id": 11,
+              "attr": {
+                "attachment": {
+                  "contentType": "text/html",
+                  "content": "\n<div><div style=\"color: rgb(0, 0, 0); font-family: Tahoma; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium;\" align=\"left\"><font color=\"#0000FF\" face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\">%let</span></font><span>&nbsp;</span><font face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\">a=</span></font><font color=\"#0000FF\" face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\">%sysfunc</span></font><span>&nbsp;</span><font face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\">(compress('E890.0',,'P'));</span></font></div><div style=\"color: rgb(0, 0, 0); font-family: Tahoma; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; font-size: medium;\" align=\"left\"><font color=\"#0000FF\" face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\">%put</span></font><span>&nbsp;</span><font face=\"Courier New\" size=\"2\"><span style=\"font-size: 10pt;\">&amp;a;</span></font></div></div>"
+                },
+                "style": {
+                  "background": "#E0E0E0"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "links": [
+    {
+      "ideaIdFrom": 11,
+      "ideaIdTo": 10,
+      "attr": {
+        "style": {
+          "color": "#FF0000",
+          "lineStyle": "dashed"
+        }
+      }
+    }
+  ]
+}
