@@ -221,6 +221,17 @@
               }
             }
           }
+        },
+        "4": {
+          "title": "Get Dates (1950 cutoff)",
+          "id": 29,
+          "attr": {
+            "attachment": {
+              "contentType": "text/html",
+              "content": "<div><br></div><div>options yearcutoff=1950;</div><div>data _null_;</div><div>&nbsp; &nbsp;a='30sep13'd;</div><div>&nbsp; &nbsp;put 'SAS date='a;</div><div>&nbsp; &nbsp;put 'formatted date='a date9.;</div><div>run;</div>"
+            },
+            "style": {}
+          }
         }
       }
     }
